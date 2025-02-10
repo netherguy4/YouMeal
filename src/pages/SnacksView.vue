@@ -3,11 +3,9 @@
 </script>
 
 <template>
-	<main class="main">
-
-	</main>
+	<div></div>
 </template>
 
-<style scoped lang="sass">
+<style lang='sass' scoped>
 
 </style>
