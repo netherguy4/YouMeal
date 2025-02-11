@@ -1,79 +1,28 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
+import menu from '@/data/menu.json'
 
-const buttons = [
-    {
-        "id": 1,
-				"name": "burgers",
-				"title": "Бургеры",
-				"url": "/img/nav/image-1.png"
-    },
-    {
-        "id": 2,
-				"name": "snacks",
-				"title": "Закуски",
-				"url": "/img/nav/image-2.png"
-    },
-    {
-        "id": 3,
-				"name": "hot-dogs",
-				"title": "Хот-доги",
-				"url": "/img/nav/image-3.png"
-    },
-    {
-        "id": 4,
-				"name": "combo",
-				"title": "Комбо",
-				"url": "/img/nav/image-4.png"
-    },
-    {
-        "id": 5,
-				"name": "shawerma",
-				"title": "Шаурма",
-				"url": "/img/nav/image-5.png"
-    },
-    {
-        "id": 6,
-				"name": "pizza",
-				"title": "Пицца",
-				"url": "/img/nav/image-6.png"
-    },
-    {
-        "id": 7,
-				"name": "wok",
-				"title": "Вок",
-				"url": "/img/nav/image-7.png"
-    },
-    {
-        "id": 8,
-				"name": "deserts",
-				"title": "Десерты",
-				"url": "/img/nav/image-8.png"
-    },
-    {
-        "id": 9,
-				"name": "sauses",
-				"title": "Соусы",
-				"url": "/img/nav/image-9.png"
-    }
-]
 </script>
 
 <template>
-	<swiper class="nav"
-		:space-between="24"
-		:slides-per-view="'auto'"
-		:slides-offset-before="75"
-  >
-    <swiper-slide style="flex: 0 0 120px;" v-for="button in buttons" :key="button.id">
-			<div class="nav__link-wrapper"><router-link active-class="_active" :to="button.name" class="nav__link"><img class="nav__icon" :src="button.url" ><span class="nav__text">{{ button.title }}</span></router-link></div>
-		</swiper-slide>
-  </swiper>
+	<div class="nav">
+		<swiper class="nav__container"
+			:space-between="24"
+			:slides-per-view="'auto'"
+			:slides-offset-before="75"
+			>
+				<swiper-slide style="flex: 0 0 120px;" v-for="item in menu" :key="item.id">
+				<div class="nav__link-wrapper"><router-link active-class="_active" :to="item.route" class="nav__link"><img class="nav__icon" :src="item.url" ><span class="nav__text">{{ item.title }}</span></router-link></div>
+			</swiper-slide>
+			</swiper>
+	</div>
 </template>
 
 <style lang='sass' scoped>
 .nav
+	&__container
+		max-width: 1440px
 	&__link
 		user-select: none
 		padding: 8px 14px
@@ -95,6 +44,7 @@ const buttons = [
 		&-wrapper
 			display: flex
 			flex-direction: column
+			padding: 5px 0
 	&__icon
 		max-height: 24px
 		max-width: 24px

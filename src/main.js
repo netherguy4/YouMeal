@@ -8,13 +8,13 @@ import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
 import App from './App.vue'
-import BurgersView from './pages/BurgersView.vue'
-import SnacksView from './pages/SnacksView.vue'
+import MenuView from './pages/MenuView.vue'
+// import SnacksView from './pages/SnacksView.vue'
 
 const routes = [
-	{ path: '/', redirect: { name: 'Burgers' } },
-	{ path: '/burgers', name: 'Burgers', component: BurgersView },
-	{ path: '/snacks', name: 'Snacks', component: SnacksView },
+	{ path: '/', redirect: '/burgers' },
+	{ path: '/:name', component: MenuView, props: true },
+	{ path: '/:pathMatch(.*)*', redirect: '/burgers' },
 ]
 const router = createRouter({
 	history: createWebHistory(),
