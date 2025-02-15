@@ -235,7 +235,6 @@
 	<div class="hero">
 		<div class="hero__decorative-element"></div>
 		<div class="hero__container">
-			<div class="hero__image-wrapper " v-html="heroBurger"></div>
 			<div class="hero__text-container">
 				<h1 class="hero__title">
 					<span class="hero__title-span">Только самые </span>
@@ -243,6 +242,7 @@
 				</h1>
 				<p class="hero__subtitle">Бесплатная доставка от <span class="hero__subtitle-span">599₽</span></p>
 			</div>
+			<div class="hero__image-wrapper " v-html="heroBurger"></div>
 		</div>
 	</div>
 </template>
@@ -251,6 +251,9 @@
 .hero
 	position: relative
 	overflow: hidden
+	display: flex
+	align-items: center
+	justify-content: center
 	&__decorative-element
 		position: absolute
 		bottom: 0
@@ -262,34 +265,53 @@
 		background: #FFAB08
 		z-index: -1
 	&__container
-		height: 100%
+		text-align: center
 		display: flex
-		align-items: center
+		flex-direction: row-reverse
+		flex-wrap: wrap
 		justify-content: center
-		gap: 20px
+		padding: 0 100px
+		@media (min-width: $M)
+			text-align: left
+		@media (min-width: $L)
+			gap: 20px
 	&__image-wrapper
 		aspect-ratio: 1
-		width: 326px
-		display: flex
+		overflow: hidden
+		width: 227px
+		display: inline-flex
 		justify-content: center
 		align-items: center
+		@media (min-width: $L)
+			width: 326px
 	&__text-container
-		display: flex
-		flex-direction: column
-		gap: 50px
+		flex-shrink: 0
+		padding: 30px 0 0
+		@media (min-width: $L)
+			padding: 50px 0 0
 	&__title
 		color: #FF5C00
-		font-size: 50px
+		font-size: 30px
 		font-weight: 800
 		line-height: 120%
 		display: flex
 		flex-direction: column
 		&-span:first-child
 			color: #FFF
+		@media (min-width: $M)
+			font-size: 36px
+		@media (min-width: $L)
+			font-size: 50px
 	&__subtitle
 		color: #FFF
-		font-size: 16px
+		font-size: 12px
 		font-weight: 400
+		margin: 16px 0 0
 		&-span
 			font-weight: 600
+		@media (min-width: $M)
+			margin: 26px 0 0
+		@media (min-width: $L)
+			margin: 52px 0 0
+			font-size: 16px
 </style>

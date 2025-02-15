@@ -8,12 +8,30 @@ import menu from '@/data/menu.json'
 <template>
 	<div class="nav">
 		<swiper class="nav__container"
-			:space-between="24"
+			:space-between="8"
 			:slides-per-view="'auto'"
-			:slides-offset-before="75"
+			:slides-offset-before="10"
+			:slides-offset-after="10"
+			:breakpoints="{
+    		320: {
+					spaceBetween: 12,
+					slidesOffsetBefore: 64,
+					slidesOffsetAfter: 64
+    		},
+				768: {
+					spaceBetween: 14,
+					slidesOffsetBefore: 32,
+					slidesOffsetAfter: 32
+				},
+				1024: {
+					spaceBetween: 24,
+					slidesOffsetBefore: 75,
+					slidesOffsetAfter: 75
+				}
+    }"
 			>
 				<swiper-slide style="flex: 0 0 120px;" v-for="item in menu" :key="item.id">
-				<div class="nav__link-wrapper"><router-link active-class="_active" :to="item.route" class="nav__link"><img class="nav__icon" :src="item.url" ><span class="nav__text">{{ item.title }}</span></router-link></div>
+				<div class="nav__link-wrapper"><router-link active-class="_active" :to="item.route" class="nav__link"><img class="nav__icon" :src="item.imageUrl" ><span class="nav__text">{{ item.title }}</span></router-link></div>
 			</swiper-slide>
 			</swiper>
 	</div>
@@ -27,7 +45,7 @@ import menu from '@/data/menu.json'
 		user-select: none
 		padding: 8px 14px
 		color: #000
-		font-size: 16px
+		font-size: 12px
 		font-weight: 400
 		flex-shrink: 0
 		display: flex
@@ -37,6 +55,8 @@ import menu from '@/data/menu.json'
 		background: #fff
 		border-radius: 50px
 		transition: $trTime
+		@media (min-width: $M)
+			font-size: 16px
 		&:hover
 			box-shadow: 0 0 5px rgba(255, 173, 8, 0.5)
 		&._active

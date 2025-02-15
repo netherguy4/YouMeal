@@ -31,22 +31,20 @@ const logo = {
 <template>
 	<div id="wrapper">
 		<header class="header">
-			<div v-html="logo.Text+logo.Icon" class="header__logo-container"></div>
+			<div class="header__logo-container">
+				<i v-html="logo.Text" class="logo"></i>
+				<i v-html="logo.Icon" class="logo"></i>
+			</div>
 			<AppHero class="header__hero"/>
 			<AppNav class="header__nav"/>
 		</header>
 		<main class="main">
 			<div class="main__container container">
 				<AppSidebar class="main__sidebar" />
-				<RouterView v-slot="{ Component }">
-					<component class="main__shop"
-						:is="Component"
-						:title="$route.path"
-					/>
-				</RouterView>
+				<RouterView class="main__shop" />
 			</div>
 		</main>
-		<AppFooter :logo="logo" class="footer"/>
+		<AppFooter :logo="logo"/>
 	</div>
 </template>
 
@@ -65,25 +63,43 @@ const logo = {
 		top: 25px
 		left: 50%
 		translate: -50% 0
-		height: 30px
 		display: flex
+		align-items: center
 		color: white
+		.logo
+			height: 33.5px
+			display: flex
+			&:first-child
+				height: 18px
 	&__hero
-		height: 466px
+		height: 459px
+		@media (min-width: $M)
+			height: 349px
+		@media (min-width: $L)
+			height: 466px
 	&__nav
 		width: 100%
-		padding: 35px 0 15px 0
+		padding: 25px 0 15px 0
+		@media (min-width: $M)
+			padding: 35px 0 15px 0
 .main
 	flex: 1 1 auto
 	&__container
 		display: flex
 		gap: 30px
-		padding: 0 75px
 	&__sidebar
-		flex: 1 1 300px
+		width: 300px
+		flex-shrink: 0
 	&__shop
 		flex: 1 1 960px
 .container
 	max-width: 1440px
 	margin: 0 auto
+	padding: 0 10px
+	@media (min-width: $S)
+		padding: 0 tovw(68, 768)
+	@media (min-width: $M)
+		padding: 0 32px
+	@media (min-width: $L)
+		padding: 0 75px
 </style>

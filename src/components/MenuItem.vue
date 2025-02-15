@@ -1,29 +1,53 @@
 <script setup>
+import { inject } from 'vue';
 
+const props = defineProps({
+	title: String,
+	price: Number,
+	weight: Number,
+	imageUrl: String
+})
+
+const cart = inject('cart')
+
+function addToCart(){
+	const index = cart.value.findIndex(item => item.title == props.title)
+	if (index == -1) {
+		cart.value.push({
+			title: props.title,
+			price: props.price,
+			weight: props.weight,
+			imageUrl: props.imageUrl,
+			count: 1
+		})
+		} else {
+		cart.value[index].count ++
+	}
+}
 </script>
 
 <template>
 <div class="item">
 	<div class="item__container">
 		<div class="item__img-wrapper">
-			<img src="/img/burger-M.jpg" alt="" class="item__img">
+			<img :src="props.imageUrl" alt="" class="item__img">
 		</div>
-		<div class="item__price">550₽</div>
-		<div class="item__title">Супер сырный</div>
-		<div class="item__weight">512г</div>
-		<button class="item__add-button">Добавить</button>
+		<div class="item__price">{{ price }}₽</div>
+		<div class="item__title">{{ title }}</div>
+		<div class="item__weight">{{ weight }}г</div>
+		<button @click="addToCart" class="item__add-button">Добавить</button>
 	</div>
 </div>
 </template>
 
 <style lang='sass' scoped>
 .item
-	border-radius: 18px
-	background: #FFF
 	color: #000
 	font-size: 16px
 	font-weight: 400
 	&__container
+		border-radius: 18px
+		background: #FFF
 		padding: 12px
 		display: flex
 		flex-direction: column

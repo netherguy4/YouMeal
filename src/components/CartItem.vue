@@ -6,7 +6,7 @@
 	<div class="item">
 		<div class="item__container">
 			<div class="item__image-wrapper">
-				<img src="/img/burger-S.jpg" class="item__image">
+				<img src="/img/burgers/burger-1.jpg" class="item__image">
 			</div>
 			<div class="item__caption">
 				<div class="item__title">Супер сырный</div>

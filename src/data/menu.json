@@ -1,56 +1,125 @@
 [
 	{
-		"id": 1,
 		"route": "/burgers",
 		"title": "Бургеры",
-		"url": "/img/nav/image-1.png"
+		"imageUrl": "/img/nav/image-1.png",
+		"items": [
+			{
+				"title": "Мясная бомба",
+				"price": 689,
+				"weight": 520,
+				"imageUrl": "/img/burgers/burger-1.jpg"
+			},
+			{
+				"title": "Супер сырный",
+				"price": 550,
+				"weight": 512,
+				"imageUrl": "/img/burgers/burger-2.jpg"
+			},
+			{
+				"title": "Сытный",
+				"price": 639,
+				"weight": 580,
+				"imageUrl": "/img/burgers/burger-3.jpg"
+			},
+			{
+				"title": "Тяжелый удар",
+				"price": 480,
+				"weight": 470,
+				"imageUrl": "/img/burgers/burger-4.jpg"
+			},
+			{
+				"title": "Вечная классика",
+				"price": 450,
+				"weight": 450,
+				"imageUrl": "/img/burgers/burger-5.jpg"
+			},
+			{
+				"title": "Итальянский",
+				"price": 560,
+				"weight": 510,
+				"imageUrl": "/img/burgers/burger-6.jpg"
+			}
+		]
 	},
 	{
-		"id": 2,
 		"route": "/snacks",
 		"title": "Закуски",
-		"url": "/img/nav/image-2.png"
+		"imageUrl": "/img/nav/image-2.png",
+		"items": [
+			{
+				"title": "Начос",
+				"price": 250,
+				"weight": 220,
+				"imageUrl": "/img/snacks/snack-1.jpg"
+			},
+			{
+				"title": "Картошка фри",
+				"price": 245,
+				"weight": 180,
+				"imageUrl": "/img/snacks/snack-2.jpg"
+			},
+			{
+				"title": "Луковые кольца",
+				"price": 230,
+				"weight": 160,
+				"imageUrl": "/img/snacks/snack-3.jpg"
+			}
+		]
 	},
 	{
-		"id": 3,
 		"route": "/hot-dogs",
 		"title": "Хот-доги",
-		"url": "/img/nav/image-3.png"
+		"imageUrl": "/img/nav/image-3.png",
+		"items": [
+			{
+				"title": "Домашний хот-дог",
+				"price": 290,
+				"weight": 250,
+				"imageUrl": "/img/hot-dogs/hot-dog-1.jpg"
+			},
+			{
+				"title": "Жгучий хот-дог",
+				"price": 239,
+				"weight": 245,
+				"imageUrl": "/img/hot-dogs/hot-dog-2.jpg"
+			},
+			{
+				"title": "Классический хот-дог",
+				"price": 220,
+				"weight": 215,
+				"imageUrl": "/img/hot-dogs/hot-dog-3.jpg"
+			}
+		]
 	},
 	{
-		"id": 4,
 		"route": "/combo",
 		"title": "Комбо",
-		"url": "/img/nav/image-4.png"
+		"imageUrl": "/img/nav/image-4.png"
 	},
 	{
-		"id": 5,
 		"route": "/shawerma",
 		"title": "Шаурма",
-		"url": "/img/nav/image-5.png"
+		"imageUrl": "/img/nav/image-5.png"
 	},
 	{
-		"id": 6,
 		"route": "/pizza",
 		"title": "Пицца",
-		"url": "/img/nav/image-6.png"
+		"imageUrl": "/img/nav/image-6.png"
 	},
 	{
-		"id": 7,
 		"route": "/wok",
 		"title": "Вок",
-		"url": "/img/nav/image-7.png"
+		"imageUrl": "/img/nav/image-7.png"
 	},
 	{
-		"id": 8,
 		"route": "/deserts",
 		"title": "Десерты",
-		"url": "/img/nav/image-8.png"
+		"imageUrl": "/img/nav/image-8.png"
 	},
 	{
-		"id": 9,
 		"route": "/sauses",
 		"title": "Соусы",
-		"url": "/img/nav/image-9.png"
+		"imageUrl": "/img/nav/image-9.png"
 	}
 ]

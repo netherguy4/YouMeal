@@ -40,21 +40,28 @@ const socials = [
 
 <template>
 <footer class="footer">
-	<div class="footer__container container">
-		<div v-html="logo.Text+logo.Icon" class="footer__logo-container"></div>
-		<address class="footer__address">
-			<div class="footer__caption">Номер для заказа</div>
-			<a href="tel:+79308333811" class="footer__link"><Icon style="width: 24px; height: 24px;" icon="icon-park-solid:phone-telephone" />+7(930)833-38-11</a>
-		</address>
-		<div class="footer__address">
-			<div class="footer__caption">Мы в соцсетях</div>
-			<div class="footer__socials">
-				<a v-for="social in socials" :key="social.name" :href="social.href" v-html="social.svg" class="footer__social-link"></a>
+	<div class="container">
+		<div class="footer__content">
+			<div class="footer__logo-container">
+				<i v-html="logo.Text" class="logo"></i>
+				<i v-html="logo.Icon" class="logo"></i>
 			</div>
-		</div>
-		<div class="footer__copy-container">
-			<p class="footer__copy">© YouMeal, 2022</p>
-			<p class="footer__copy">Design: Anastasia Ilina</p>
+			<div class="footer__address-container">
+				<address class="footer__address">
+					<div class="footer__caption">Номер для заказа</div>
+					<a href="tel:+79308333811" class="footer__link"><Icon style="width: 24px; height: 24px;" icon="icon-park-solid:phone-telephone" />+7(930)833-38-11</a>
+				</address>
+				<div class="footer__address">
+					<div class="footer__caption">Мы в соцсетях</div>
+					<div class="footer__socials">
+						<a v-for="social in socials" :key="social.name" :href="social.href" v-html="social.svg" class="footer__social-link"></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer__copy-container">
+				<p class="footer__copy">© YouMeal, 2022</p>
+				<p class="footer__copy">Design: Anastasia Ilina</p>
+			</div>
 		</div>
 	</div>
 </footer>
@@ -64,38 +71,85 @@ const socials = [
 .footer
 	background: #fff
 	color: #000
-	font-size: 24px
+	font-size: 18px
 	font-weight: 400
-	&__container
+	@media (min-width: $M)
+		font-size: 24px
+	&__content
 		position: relative
-		height: 244px
-		padding: 50px 75px 40px
-		display: flex
-	&__logo-container
-		height: 58px
-		display: flex
-		color: #FF7020
-		margin: 0 auto 0 0
-	&__address
-		margin: 0 120px 0 0
+		padding: 21px 0 96px
 		display: flex
 		flex-direction: column
-		gap: 24px
+		// gap: tovw(50,1024)
+		row-gap: 31px
+		@media (min-width: $S)
+			padding: 35px 0 100px
+			row-gap: 43px
+		@media (min-width: $M)
+			padding: 40px 0 115px
+			flex-direction: row
+			flex-wrap: wrap
+			height: 244px
+			padding: 50px 0 40px
+		@media (min-width: $L)
+			// gap: tovw(120, 1440)
+		@media (min-width: $L)
+			// gap: 120px
+	&__logo-container
+		display: flex
+		align-items: center
+		align-self: flex-start
+		color: #FF7020
+		margin: 0 auto 0 0
+		.logo
+			height: 43.5px
+			display: flex
+			&:first-child
+				height: 24px
+			@media (min-width: $M)
+				height: 66.5px
+				&:first-child
+					height: 36.5px
+	&__address
+		// margin: 0 120px 0 0
+		display: flex
+		flex-direction: column
+		gap: 8px
 		font-style: normal
 		align-items: flex-start
 		flex-shrink: 0
+		@media (min-width: $M)
+			gap: 24px
+		&-container
+			display: flex
+			flex-wrap: wrap
+			row-gap: 24px
+			justify-content: space-between
+			column-gap: 40px
+			@media (min-width: $S)
+				width: 453px
+				max-width: 100%
+			@media (min-width: $M)
+				width: 50%
+			@media (min-width: $L)
+				margin: 0 tovw(135, 1440) 0 0
+			@media (min-width: $XL)
+				margin: 0 135px 0 0
 	// &__caption
 	&__socials
-		margin: -2px 0 0
 		display: flex
 		gap: 16px
+		@media (min-width: $M)
+			margin: -2px 0 0
 	&__link
 		color: #000
-		font-size: 16px
+		font-size: 12px
 		line-height: 130%
 		display: flex
 		gap: 4px
 		align-items: center
+		@media (min-width: $M)
+			font-size: 16px
 	&__social-link
 		width: 36px
 		aspect-ratio: 1
@@ -108,7 +162,7 @@ const socials = [
 		flex-direction: column
 		gap: 4px
 		bottom: 40px
-		left: 75px
+		left: 0
 	&__copy
 		font-size: 12px
 </style>
