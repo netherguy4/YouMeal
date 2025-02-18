@@ -15,7 +15,7 @@ import menu from '@/data/menu.json'
 			:breakpoints="{
     		320: {
 					spaceBetween: 12,
-					slidesOffsetBefore: 64,
+					slidesOffsetBefore: 0,
 					slidesOffsetAfter: 64
     		},
 				768: {
@@ -37,37 +37,46 @@ import menu from '@/data/menu.json'
 	</div>
 </template>
 
-<style lang='sass' scoped>
-.nav
-	&__container
-		max-width: 1440px
-	&__link
-		user-select: none
-		padding: 8px 14px
-		color: #000
-		font-size: 12px
-		font-weight: 400
-		flex-shrink: 0
-		display: flex
-		gap: 8px
-		justify-content: center
-		align-items: center
-		background: #fff
-		border-radius: 50px
-		transition: $trTime
-		@media (min-width: $M)
-			font-size: 16px
-		&:hover
-			box-shadow: 0 0 5px rgba(255, 173, 8, 0.5)
-		&._active
-			background: #FFAB08
-		&-wrapper
-			display: flex
-			flex-direction: column
-			padding: 5px 0
-	&__icon
-		max-height: 24px
-		max-width: 24px
-	&__text
-		flex-shrink: 0
+<style lang='scss' scoped>
+.nav{
+	&__container{
+		max-width: 1440px;}
+	&__link{
+		user-select: none;
+		padding: 8px 14px;
+		color: #000;
+		font-size: 12px;
+		font-weight: 400;
+		flex-shrink: 0;
+		display: flex;
+		gap: 8px;
+		justify-content: center;
+		align-items: center;
+		background: #fff;
+		border-radius: 50px;
+		transition: $trTime;
+		@media (min-width: $M){
+			font-size: 16px;}
+		&:hover{
+			box-shadow: 0 0 5px rgba(255, 173, 8, 0.5);}
+		&._active{
+			background: #FFAB08;}
+		&-wrapper{
+			display: flex;
+			flex-direction: column;
+			padding: 5px 0;}}
+	&__icon{
+		max-height: 24px;
+		max-width: 24px;}
+	&__text{
+		flex-shrink: 0;}}
+</style>
+<style lang='scss'>
+.nav .swiper-wrapper{
+	@media (min-width:$S) {
+		@media (max-width:$M) {
+			padding: 0 0 0 tovw(64,768);
+		}
+	}
+}
 </style>

@@ -166,3 +166,34 @@ const socials = [
 	&__copy
 		font-size: 12px
 </style>
+<style lang='scss' scoped>
+.footer {
+	&__link{
+		position: relative;
+		&::after{
+			content: '';
+			position: absolute;
+			transition: .3s;
+			left: 0;
+			bottom: -5px;
+			height: 2px;
+			width: 0%;
+			background: #000;
+		}
+		&:hover::after{
+			width: 100%;
+		}
+	}
+	&__social-link{
+		transition: .3s;
+		&:hover{
+			scale: 1.1;
+			box-shadow: 0 0 5px #FF7020;
+		}
+		&:active{
+			scale: 0.95;
+			box-shadow: 0 0 2px #FF7020;
+		}
+	}
+}
+</style>

@@ -5,6 +5,7 @@ import 'vue-toastification/dist/index.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
+import { plugin, defaultConfig } from '@formkit/vue'
 import Toast from 'vue-toastification'
 
 import App from './App.vue'
@@ -33,6 +34,7 @@ router.beforeEach((to, from) => {
 
 const app = createApp(App)
 app.use(autoAnimatePlugin)
+app.use(plugin, defaultConfig())
 app.use(router)
 app.use(Toast)
 app.mount('#app')

@@ -242,7 +242,7 @@
 				</h1>
 				<p class="hero__subtitle">Бесплатная доставка от <span class="hero__subtitle-span">599₽</span></p>
 			</div>
-			<div class="hero__image-wrapper " v-html="heroBurger"></div>
+			<div class="hero__image-wrapper" v-html="heroBurger"></div>
 		</div>
 	</div>
 </template>
