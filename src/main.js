@@ -3,7 +3,7 @@ import 'animate.css'
 import 'vue-toastification/dist/index.css'
 
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import { plugin, defaultConfig } from '@formkit/vue'
 import Toast from 'vue-toastification'
@@ -14,22 +14,22 @@ import MenuView from './pages/MenuView.vue'
 import menu from '@/data/menu.json'
 
 const routes = [
-	{ path: '/', redirect: menu[0].route },
-	{ path: '/:name', component: MenuView },
+  { path: '/', redirect: menu[0].route },
+  { path: '/:name', component: MenuView },
 ]
 const router = createRouter({
-	history: createWebHistory(),
-	routes,
+  history: createWebHashHistory('YouMeal'),
+  routes,
 })
 router.beforeEach((to, from) => {
-	const routes = new Set(menu.map((item) => item.route))
-	if (routes.has(to.path)) {
-		return true
-	} else if (from.path) {
-		return { route: from.path }
-	} else {
-		return { route: '/' }
-	}
+  const routes = new Set(menu.map((item) => item.route))
+  if (routes.has(to.path)) {
+    return true
+  } else if (from.path) {
+    return { route: from.path }
+  } else {
+    return { route: '/' }
+  }
 })
 
 const app = createApp(App)
